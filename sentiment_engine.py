@@ -14,12 +14,14 @@ sentiment_model = pipeline(
 )
 
 def predict_sentiment(text: str):
+    # Preprocess text before send it to pipeline
     preprocessed = normalize_text(text)
+
     result = sentiment_model(preprocessed)[0]
     label = result['label']
     # score = round(result['score'], 4)
 
-    # Map lại nhãn thành POSITIVE / NEUTRAL / NEGATIVE cho thống nhất
+    # Map result's label into POSITIVE / NEUTRAL / NEGATIVE
     label_map = {
         "POS": "POSITIVE",
         "NEU": "NEUTRAL",

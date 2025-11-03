@@ -17,4 +17,6 @@ TEST_CASES = [
 for test in TEST_CASES:
     directory = predict_sentiment(test)
     print(directory, "\n")
-    save_sentiment_to_db(directory)
+
+    # Uncomment the line below if you want to create example data
+    # save_sentiment_to_db(directory)

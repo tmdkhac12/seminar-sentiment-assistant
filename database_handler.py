@@ -23,11 +23,11 @@ def get_all_sentiments():
     cursor = conn.cursor()
 
     cursor.execute("""
-        SELECT * FROM sentiments
+        SELECT text, sentiment, timestamp FROM sentiments
         ORDER BY timestamp desc 
-        LIMIT 50
     """)
 
     result = cursor.fetchall()
+    conn.close()
 
     return result
